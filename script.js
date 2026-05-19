@@ -27,7 +27,6 @@
 
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt;
-      lightboxImage.className = `lightbox-image ${image.classList.contains("rotate-left") ? "rotate-left" : ""}`.trim();
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
       closeButton?.focus();
