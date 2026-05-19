@@ -267,6 +267,7 @@ a {
 .gallery-card {
   position: relative;
   min-height: 300px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
   background: var(--charcoal);
@@ -275,14 +276,26 @@ a {
 
 .gallery-card.large {
   grid-row: span 2;
+  aspect-ratio: auto;
   min-height: 616px;
+}
+
+.gallery-card.panoramic {
+  grid-column: 1 / -1;
+  aspect-ratio: 21 / 9;
+  min-height: 360px;
 }
 
 .gallery-card img {
   height: 100%;
   object-fit: cover;
+  object-position: center;
   opacity: 0.82;
   transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+.gallery-card.panoramic img {
+  object-fit: cover;
 }
 
 .gallery-card:hover img {
@@ -493,6 +506,11 @@ textarea:focus {
 
   .gallery-card {
     min-height: 280px;
+  }
+
+  .gallery-card.panoramic {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
   }
 }
 
