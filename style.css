@@ -280,13 +280,42 @@ a {
   min-height: 616px;
 }
 
-.gallery-card.panoramic {
+.panorama-carousel {
+  position: relative;
   grid-column: 1 / -1;
   aspect-ratio: 21 / 9;
   min-height: 360px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--charcoal);
+  color: white;
+}
+
+.panorama-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.75s ease;
+}
+
+.panorama-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.gallery-open {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
 }
 
 .gallery-card img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -294,7 +323,7 @@ a {
   transition: transform 0.45s ease, opacity 0.45s ease;
 }
 
-.gallery-card.panoramic img {
+.panorama-slide img {
   object-fit: cover;
 }
 
@@ -303,14 +332,17 @@ a {
   opacity: 0.95;
 }
 
-.gallery-card div {
+.gallery-card div,
+.panorama-slide div {
   position: absolute;
   inset: auto 0 0;
+  pointer-events: none;
   padding: 24px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
 }
 
 .gallery-card span,
+.panorama-slide span,
 .contact-cards span {
   display: block;
   color: #f2c66f;
@@ -320,7 +352,8 @@ a {
   text-transform: uppercase;
 }
 
-.gallery-card h3 {
+.gallery-card h3,
+.panorama-slide h3 {
   max-width: 440px;
   margin: 8px 0 0;
   font-size: clamp(1.35rem, 3vw, 2.5rem);
@@ -432,6 +465,44 @@ textarea:focus {
   display: none;
 }
 
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 22px 28px;
+  background: rgba(12, 10, 8, 0.92);
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
 .site-footer {
   justify-content: space-between;
   gap: 18px;
@@ -508,7 +579,7 @@ textarea:focus {
     min-height: 280px;
   }
 
-  .gallery-card.panoramic {
+  .panorama-carousel {
     min-height: 240px;
     aspect-ratio: 16 / 10;
   }

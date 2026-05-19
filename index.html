@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=4" />
+  <script src="script.js?v=3" defer></script>
 </head>
 
 <body>
@@ -73,59 +73,97 @@
 
       <div class="gallery">
         <article class="gallery-card large">
-          <img src="pic1_files/_M4_9287.jpg" alt="Guests celebrating on a rooftop reception dance floor" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/_M4_9287.jpg" alt="Guests celebrating on a rooftop reception dance floor" />
+          </button>
           <div>
             <span>Events</span>
             <h3>Celebrations with energy, movement, and atmosphere</h3>
           </div>
         </article>
         <article class="gallery-card">
-          <img src="pic1_files/649227088_18107728822701161_3415567960477557488_n.webp" alt="Portrait portfolio photo by Addin Midua" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/649227088_18107728822701161_3415567960477557488_n.webp" alt="Portrait portfolio photo by Addin Midua" />
+          </button>
           <div>
             <span>Portraits</span>
             <h3>Individual and family sessions</h3>
           </div>
         </article>
         <article class="gallery-card">
-          <img src="pic1_files/649018703_18107728813701161_5847595504757515603_n.webp" alt="Person sitting on a hillside overlooking a city skyline" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/649018703_18107728813701161_5847595504757515603_n.webp" alt="Person sitting on a hillside overlooking a city skyline" />
+          </button>
           <div>
             <span>Creative Portraits</span>
             <h3>Personal images with place, mood, and atmosphere</h3>
           </div>
         </article>
         <article class="gallery-card">
-          <img src="pic1_files/653533313_18014904881828978_1812830921356049045_n.webp" alt="Photographer self portrait in a car mirror" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/653533313_18014904881828978_1812830921356049045_n.webp" alt="Photographer self portrait in a car mirror" />
+          </button>
           <div>
             <span>Behind the Lens</span>
             <h3>Personal perspective and candid detail</h3>
           </div>
         </article>
         <article class="gallery-card">
-          <img src="pic1_files/_MG_6403fff.JPG" alt="Couple smiling together during a formal portrait" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/_MG_6403fff.JPG" alt="Couple smiling together during a formal portrait" />
+          </button>
           <div>
             <span>Weddings</span>
             <h3>Warm portraits for meaningful milestones</h3>
           </div>
         </article>
         <article class="gallery-card">
-          <img src="pic1_files/_MG_6902%20-%20edit.jpg" alt="Pink flowers photographed against a blue sky" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/_MG_6902%20-%20edit.jpg" alt="Pink flowers photographed against a blue sky" />
+          </button>
           <div>
             <span>Details</span>
             <h3>Simple details that add color to the story</h3>
           </div>
         </article>
         <article class="gallery-card">
-          <img src="pic1_files/641639093_18107101741701161_4940965677085035073_n.webp" alt="Portfolio photo by Addin Midua" />
+          <button class="gallery-open" type="button" aria-label="View full image">
+            <img src="pic1_files/641639093_18107101741701161_4940965677085035073_n.webp" alt="Portfolio photo by Addin Midua" />
+          </button>
           <div>
             <span>Moments</span>
             <h3>Natural images with a polished finish</h3>
           </div>
         </article>
-        <article class="gallery-card panoramic">
-          <img src="pic1_files/panorama.jpg" alt="Panoramic sunset landscape over a park and water" />
-          <div>
-            <span>Panoramas</span>
-            <h3>Wide scenes with atmosphere and scale</h3>
+        <article class="panorama-carousel" aria-label="Panoramic portfolio images">
+          <div class="panorama-track" id="panoramaTrack">
+            <div class="panorama-slide">
+              <button class="gallery-open" type="button" aria-label="View full image">
+                <img src="pic1_files/panorama.jpg" alt="Panoramic sunset landscape over a park and water" />
+              </button>
+              <div>
+                <span>Panoramas</span>
+                <h3>Wide scenes with atmosphere and scale</h3>
+              </div>
+            </div>
+            <div class="panorama-slide">
+              <button class="gallery-open" type="button" aria-label="View full image">
+                <img src="pic1_files/IMG_3028-Pano.jpg" alt="Wide panoramic landscape photograph" />
+              </button>
+              <div>
+                <span>Scenery</span>
+                <h3>Open views built for full-width viewing</h3>
+              </div>
+            </div>
+            <div class="panorama-slide">
+              <button class="gallery-open" type="button" aria-label="View full image">
+                <img src="pic1_files/_MG_3661-Pano.JPG" alt="Wide panoramic photo by Addin Midua" />
+              </button>
+              <div>
+                <span>Wide Format</span>
+                <h3>Panoramic frames with room to breathe</h3>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -285,6 +323,11 @@
       </form>
     </section>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close full image">Close</button>
+    <img class="lightbox-image" src="" alt="" />
+  </div>
 
   <footer class="site-footer">
     <p>&copy; <span id="year"></span> Addin Midua Photography. All rights reserved.</p>
