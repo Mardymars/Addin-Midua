@@ -311,9 +311,10 @@ a {
 
 .panorama-carousel {
   position: relative;
-  grid-column: 1 / -1;
+  display: block;
   width: 100vw;
   margin-left: calc(50% - 50vw);
+  margin-top: 12px;
   aspect-ratio: 21 / 9;
   min-height: 360px;
   overflow: hidden;
