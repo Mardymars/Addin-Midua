@@ -137,7 +137,7 @@ a {
   z-index: -2;
   background:
     linear-gradient(90deg, rgba(10, 9, 8, 0.78), rgba(10, 9, 8, 0.26) 56%, rgba(10, 9, 8, 0.48)),
-    url("pic1_files/649018703_18107728813701161_5847595504757515603_n.webp") center / cover;
+    url("pic1_files/IMG_3028-Pano-opt.webp") center / cover;
 }
 
 .hero::after {
@@ -733,16 +733,27 @@ textarea:focus {
   }
 
   .gallery {
-    grid-auto-rows: 240px;
+    display: flex;
+    flex-direction: column;
+    width: min(100% - 28px, 520px);
+    gap: 22px;
   }
 
   .gallery-card {
-    min-height: 240px;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
   }
 
   .gallery-card.portrait-card {
-    grid-row: auto;
-    min-height: 320px;
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+  }
+
+  .gallery-card h3,
+  .panorama-slide h3 {
+    max-width: 100%;
+    font-size: 1.25rem;
+    overflow-wrap: break-word;
   }
 
   .panorama-carousel {
