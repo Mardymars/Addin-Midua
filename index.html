@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=16" />
-  <script src="script.js?v=4" defer></script>
+  <script src="script.js?v=5" defer></script>
 </head>
 
 <body>
@@ -218,9 +218,12 @@
         class="booking-form"
         name="photo-shoot-inquiry"
         method="POST"
-        action="mailto:miphoto2003@gmail.com?subject=New%20photography%20inquiry%20from%20Addin%20Midua%20Photography"
-        enctype="text/plain"
+        action="https://formsubmit.co/miphoto2003@gmail.com"
       >
+        <input type="hidden" name="_subject" value="New photography inquiry from Addin Midua Photography" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://addinmidua.com/thanks.html" />
         <input type="hidden" name="_honey" value="" />
         <p class="hidden">
           <label>Leave this field empty: <input name="website" /></label>
@@ -321,9 +324,7 @@
           <input name="referral_source" type="text" placeholder="Friend, search, previous event, etc." />
         </label>
 
-        <p class="form-note">This opens your email app with the inquiry filled in. Please send the email to complete the request.</p>
-
-        <button class="button primary" type="submit">Open Email Inquiry</button>
+        <button class="button primary" type="submit">Send Inquiry</button>
       </form>
     </section>
   </main>
