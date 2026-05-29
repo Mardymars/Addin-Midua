@@ -10,6 +10,8 @@
   const galleryButtons = document.querySelectorAll(".gallery-open");
   const panoramaTrack = document.getElementById("panoramaTrack");
   const panoramaSlides = document.querySelectorAll(".panorama-slide");
+  const bookingForm = document.querySelector('form[name="photo-shoot-inquiry"]');
+  const formStatus = document.getElementById("formStatus");
   let panoramaIndex = 0;
 
   function closeLightbox() {
@@ -44,6 +46,43 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeLightbox();
+    }
+  });
+
+  bookingForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!bookingForm.reportValidity()) return;
+
+    const submitButton = bookingForm.querySelector('button[type="submit"]');
+    const formData = new FormData(bookingForm);
+
+    if (formData.get("_gotcha") || formData.get("website")) return;
+
+    submitButton.disabled = true;
+    if (formStatus) {
+      formStatus.textContent = "Sending your inquiry...";
+    }
+
+    try {
+      const response = await fetch(bookingForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      window.location.href = "thanks.html";
+    } catch (error) {
+      submitButton.disabled = false;
+      if (formStatus) {
+        formStatus.textContent = "The form could not send. Please email me directly from the contact section.";
+      }
     }
   });
 
