@@ -519,6 +519,12 @@ textarea:focus {
   display: none;
 }
 
+.form-note {
+  margin: 2px 0 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
